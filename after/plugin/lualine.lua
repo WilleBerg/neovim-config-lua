@@ -1,17 +1,10 @@
--- Load the luatz library to handle time and timezone
-local tz = require("luatz")
 
--- Function to get the current time in HH:MM format in your local timezone
-local function get_time()
-  local now = tz.time()
-
-  -- Replace "Your/Desired/Timezone" with the appropriate timezone string, e.g., "America/New_York"
-  local local_time = tz.localtime(now, "Sweden/Stockholm")
-
-  -- Format the datetime object into HH:MM format
-  local formatted_time = local_time:strftime("%H:%M")
-
-  return formatted_time
+function get_client()
+	local clients = vim.lsp.get_active_clients()
+	if next(clients) ~= nil then
+		return clients[1].name
+	end
+	return ''
 end
 
 require('lualine').setup {
@@ -37,7 +30,7 @@ require('lualine').setup {
 		lualine_a = {'mode'},
 		lualine_b = {'branch', 'diff', 'diagnostics'},
 		lualine_c = {'filename'},
-		lualine_x = {'encoding', 'fileformat', 'filetype'},
+		lualine_x = { get_client, 'fileformat', 'filetype'},
 		lualine_y = {'progress'},
 		--lualine_z = {'location', get_time }
 		lualine_z = {'location'}
