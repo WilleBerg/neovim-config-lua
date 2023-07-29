@@ -1,5 +1,5 @@
 
-function get_client()
+local function get_client()
 	local clients = vim.lsp.get_active_clients()
 	if next(clients) ~= nil then
 		return clients[1].name
@@ -7,12 +7,27 @@ function get_client()
 	return ''
 end
 
+local function get_mode_with_icon()
+  local mode = vim.fn.mode():lower()
+  local mode_names = {
+    n = 'Normal',
+    i = 'Insert',
+    v = 'Visual',
+    V = 'V-Line',
+    [''] = 'V-Block',
+    c = 'Command',
+    t = 'Terminal',
+  }
+  local full_mode_name = mode_names[mode] or mode
+  return ' ' .. full_mode_name:upper()
+end
+
 require('lualine').setup {
 	options = {
-		theme = 'catppuccin-mocha',
+		theme = 'catppuccin',
 		icons_enabled = true,
-		component_separators = { left = '', right = ''},
-		section_separators = { left = '', right = ''},
+		component_separators = { '|' },
+		section_separators = { left = '', right = ''},
 		disabled_filetypes = {
 			statusline = {},
 			winbar = {},
@@ -27,10 +42,10 @@ require('lualine').setup {
 		}
 	},
 	sections = {
-		lualine_a = {'mode'},
-		lualine_b = {'branch', 'diff', 'diagnostics'},
-		lualine_c = {'filename'},
-		lualine_x = { get_client, 'fileformat', 'filetype'},
+		lualine_a = {get_mode_with_icon},
+		lualine_b = {'filename'},
+		lualine_c = {'branch', {'diff', symbols = { added = ' ', removed = ' ', modified = ' '}}},
+		lualine_x = {'diagnostics', get_client, 'fileformat', 'filetype'},
 		lualine_y = {'progress'},
 		--lualine_z = {'location', get_time }
 		lualine_z = {'location'}

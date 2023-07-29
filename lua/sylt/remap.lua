@@ -3,9 +3,10 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set({"n", "v"}, "<leader>P", "\"+p") -- paste from clipboard
 vim.keymap.set("v", "<leader>P", "\"+p") -- paste from clipboard
 vim.keymap.set({"n", "v"}, "<leader>y", "\"+y") -- yank to clipboard
-vim.api.nvim_set_keymap('v', '<leader>wp', [[<Esc>`>a)<Esc>`<i(<Esc>f)]], { noremap = true }) --wrap paranthesis
-vim.api.nvim_set_keymap('v', '<leader>wq', [[<Esc>`>a"<Esc>`<i"<Esc>f"]], { noremap = true }) --wrap qutoes
-vim.api.nvim_set_keymap('v', '<leader>wb', [[<Esc>`>a}<Esc>`<i{<Esc>f}]], { noremap = true }) --wrap brackets
+vim.api.nvim_set_keymap('v', '<leader>wp', [[<Esc>`>a)<Esc>`<i(<Esc>vf)l]], { noremap = true }) --wrap paranthesis
+vim.api.nvim_set_keymap('v', '<leader>wQ', [[<Esc>`>a"<Esc>`<i"<Esc>vf"l]], { noremap = true }) --wrap qutoes
+vim.api.nvim_set_keymap('v', '<leader>wq', [[<Esc>`>a'<Esc>`<i'<Esc>vf'l]], { noremap = true }) --wrap qutoes
+vim.api.nvim_set_keymap('v', '<leader>wb', [[<Esc>`>a}<Esc>`<i{<Esc>vf}l]], { noremap = true }) --wrap brackets
 
 vim.keymap.set("n", "<C-h>","<cmd> TmuxNavigateLeft<CR>")
 vim.keymap.set("n", "<C-l>","<cmd> TmuxNavigateRight<CR>")
