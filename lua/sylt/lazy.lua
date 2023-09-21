@@ -20,6 +20,7 @@ plugins = {
 	{
 		"catppuccin/nvim", name = "catppuccin", priority = 1000
 	},
+    { "ellisonleao/gruvbox.nvim", priority = 1000 },
 	{
 		'nvim-treesitter/nvim-treesitter',
 	},
@@ -62,6 +63,8 @@ plugins = {
     {
         'numToStr/Comment.nvim'
     },
+    {'tpope/vim-repeat'},
+    {'ggandor/leap.nvim'},
     {
         "zbirenbaum/copilot.lua", lazy = true,
         cmd = "Copilot",

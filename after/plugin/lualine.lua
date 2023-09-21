@@ -1,3 +1,4 @@
+local colorscheme = require("/after/plugin/color").lualine_colorscheme
 
 local function get_client()
 	local clients = vim.lsp.get_active_clients()
@@ -24,7 +25,9 @@ end
 
 require('lualine').setup {
 	options = {
-		theme = 'catppuccin',
+		-- theme = 'catppuccin',
+        -- theme = 'gruvbox_dark',
+        theme = colorscheme,
 		icons_enabled = true,
 		component_separators = { '|' },
 		section_separators = { left = '', right = ''},
