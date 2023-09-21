@@ -1,4 +1,4 @@
-local colorscheme = require("/after/plugin/color").lualine_colorscheme
+local colorscheme = require('after/plugin/color').lualine_colorscheme
 
 local function get_client()
 	local clients = vim.lsp.get_active_clients()
