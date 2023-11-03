@@ -1,7 +1,6 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set({"n", "v"}, "<leader>P", "\"+p") -- paste from clipboard
-vim.keymap.set("v", "<leader>P", "\"+p") -- paste from clipboard
 vim.keymap.set({"n", "v"}, "<leader>y", "\"+y") -- yank to clipboard
 vim.api.nvim_set_keymap('v', '<leader>wp', [[<Esc>`>a)<Esc>`<i(<Esc>v`>ll]], { noremap = true }) --wrap paranthesis
 vim.api.nvim_set_keymap('v', '<leader>wQ', [[<Esc>`>a"<Esc>`<i"<Esc>v`>ll]], { noremap = true }) --wrap qutoes
