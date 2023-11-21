@@ -40,6 +40,9 @@ plugins = {
 	{
 		'tpope/vim-fugitive'
 	},
+    {
+        'lewis6991/gitsigns.nvim'
+    },
 	{
 		'VonHeikemen/lsp-zero.nvim',
 		branch = 'v2.x',
