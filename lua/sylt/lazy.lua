@@ -68,6 +68,7 @@ plugins = {
     },
     {'tpope/vim-repeat'},
     {'ggandor/leap.nvim'},
+    {'m4xshen/autoclose.nvim'},
     -- {
     --     "zbirenbaum/copilot.lua", lazy = true,
     --     cmd = "Copilot",
