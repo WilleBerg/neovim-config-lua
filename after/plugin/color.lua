@@ -1,9 +1,8 @@
 local color = {}
-color.lualine_colorscheme = "gruvbox_dark"
--- color.lualine_colorscheme = "catppuccin"
---
-color.colorscheme = "gruvbox"
--- color.colorscheme = "catppuccin"
+-- color.lualine_colorscheme = "gruvbox_dark"
+-- color.colorscheme = "gruvbox"
+color.lualine_colorscheme = "catppuccin"
+color.colorscheme = "catppuccin"
 
 vim.cmd("colorscheme " .. color.colorscheme)
 
