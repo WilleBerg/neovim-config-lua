@@ -18,7 +18,6 @@ function RemoveSearchHighlight()
   end
 end
 
-vim.api.nvim_set_keymap('i', '<leader>h', '<Cmd>lua RemoveSearchHighlight()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>h', '<Cmd>lua RemoveSearchHighlight()<CR>', { noremap = true, silent = true })
 
 vim.keymap.set("n", "<C-h>","<cmd> TmuxNavigateLeft<CR>")
