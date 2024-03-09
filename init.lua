@@ -4,6 +4,7 @@ local config_dir = vim.fn.stdpath('config')
 -- Add the config directory to the package path
 package.path = package.path .. ';' .. config_dir .. '/?.lua'
 
+
 require("sylt")
 require('leap').add_default_mappings()
 

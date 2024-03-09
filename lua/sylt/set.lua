@@ -18,7 +18,7 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.local/share/nvim/undo"
 vim.opt.undofile = true
 
-vim.opt.hlsearch = false
+vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true

@@ -11,6 +11,16 @@ vim.api.nvim_set_keymap('v', '<leader>wQ', [[<Esc>`>a"<Esc>`<i"<Esc>v`>ll]], { n
 vim.api.nvim_set_keymap('v', '<leader>wq', [[<Esc>`>a'<Esc>`<i'<Esc>v`>ll]], { noremap = true }) --wrap qutoes
 vim.api.nvim_set_keymap('v', '<leader>wb', [[<Esc>`>a}<Esc>`<i{<Esc>v`>ll]], { noremap = true }) --wrap brackets
 
+-- Function to remove search highlighting
+function RemoveSearchHighlight()
+  if vim.fn.getreg('/') ~= '' then
+    vim.fn.setreg('/', '')
+  end
+end
+
+vim.api.nvim_set_keymap('i', '<leader>h', '<Cmd>lua RemoveSearchHighlight()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>h', '<Cmd>lua RemoveSearchHighlight()<CR>', { noremap = true, silent = true })
+
 vim.keymap.set("n", "<C-h>","<cmd> TmuxNavigateLeft<CR>")
 vim.keymap.set("n", "<C-l>","<cmd> TmuxNavigateRight<CR>")
 vim.keymap.set("n", "<C-j>","<cmd> TmuxNavigateDown<CR>")
