@@ -7,16 +7,23 @@ lsp.on_attach(function(client, bufnr)
 
   local opts = {buffer = bufnr, remap = false}
 
-  vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-  vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-  vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-  vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-  --vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-  --vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-  vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-  vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-  vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-  vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+-- Go to definition
+vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, {desc = "Go to definition", unpack(opts)})
+-- Show hover information
+vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, {desc = "Show hover information", unpack(opts)})
+-- Search workspace symbols
+vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, {desc = "Search workspace symbols", unpack(opts)})
+-- vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, {desc = "Go to next diagnostic", unpack(opts)})
+-- Go to previous diagnostic (commented out)
+-- vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, {desc = "Go to previous diagnostic", unpack(opts)})
+-- Open code actions
+vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, {desc = "Open code actions", unpack(opts)})
+-- Find references
+vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, {desc = "Find references", unpack(opts)})
+-- Rename symbol
+vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, {desc = "Rename symbol", unpack(opts)})
+-- Show signature help (in insert mode)
+vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, {desc = "Show signature help", unpack(opts)})
 end)
 
 lsp.ensure_installed({
