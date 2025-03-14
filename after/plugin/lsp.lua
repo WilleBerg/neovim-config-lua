@@ -27,22 +27,22 @@ vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, {desc 
 end)
 
 lsp.ensure_installed({
-	'rust_analyzer',
+	-- 'rust_analyzer',
     'lua_ls'
 })
 
 
 -- (Optional) Configure lua language server for neovim
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
-require('lspconfig').rust_analyzer.setup({
-  settings = {
-    ['rust-analyzer'] = {
-      cargo = {
-        features = "all"
-      }
-    }
-  }
-})
+-- require('lspconfig').rust_analyzer.setup({
+--   settings = {
+--     ['rust-analyzer'] = {
+--       cargo = {
+--         features = "all"
+--       }
+--     }
+--   }
+-- })
 lsp.setup()
 
 -- You need to setup `cmp` after lsp-zero
