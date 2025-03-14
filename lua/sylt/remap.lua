@@ -11,12 +11,10 @@ vim.api.nvim_set_keymap('v', '<leader>wQ', [[<Esc>`>a"<Esc>`<i"<Esc>v`>ll]], { n
 vim.api.nvim_set_keymap('v', '<leader>wq', [[<Esc>`>a'<Esc>`<i'<Esc>v`>ll]], { noremap = true }) --wrap qutoes
 vim.api.nvim_set_keymap('v', '<leader>wb', [[<Esc>`>a}<Esc>`<i{<Esc>v`>ll]], { noremap = true }) --wrap brackets
 
--- Function to remove search highlighting
-function RemoveSearchHighlight()
-  if vim.fn.getreg('/') ~= '' then
-    vim.fn.setreg('/', '')
-  end
-end
+vim.keymap.set('n', '<Esc>', function()
+    vim.cmd('nohlsearch')
+    vim.api.nvim_exec_autocmds('User', { pattern = "EscPressedInNormal" })
+end, { desc='Clear search highlight on Escape'})
 
 vim.api.nvim_set_keymap('n', '<leader>h', '<Cmd>lua RemoveSearchHighlight()<CR>', { noremap = true, silent = true })
 
