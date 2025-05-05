@@ -1,11 +1,11 @@
 local colorscheme = require('after/plugin/color').lualine_colorscheme
 
 local function get_client()
-	local clients = vim.lsp.get_active_clients()
-	if next(clients) ~= nil then
-		return clients[1].name
-	end
-	return ''
+    local clients = vim.lsp.get_clients()
+    if next(clients) ~= nil then
+        return clients[1].name
+    end
+    return ''
 end
 
 local function get_mode_with_icon()
