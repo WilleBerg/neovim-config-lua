@@ -52,12 +52,12 @@ plugins = {
             pcall(vim.api.nvim_command, 'MasonUpdate')
         end,
     },
+    {'williamboman/mason-lspconfig.nvim'}, -- Optional
 	-- {
 	-- 	'VonHeikemen/lsp-zero.nvim',
 	-- 	branch = 'v2.x',
 	-- 	dependencies = {
 	-- 		-- LSP Support
-	-- 	{'williamboman/mason-lspconfig.nvim'}, -- Optional
 	--
 	-- 	-- Autocompletion
 	-- 	{'hrsh7th/nvim-cmp'},     -- Required
@@ -104,8 +104,19 @@ plugins = {
         },
 
         -- (Default) Only show the documentation popup when manually triggered
-        completion = { documentation = { auto_show = false } },
-
+        -- completion = { documentation = { auto_show = false, window = { border = 'solid'} } },
+        completion = {
+            menu = {
+                border = "single",
+                winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
+            },
+            documentation = {
+                window = {
+                    border = "single",
+                    winhighlight = "Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None",
+                },
+            },
+        },
         -- Default list of enabled providers defined so that you can extend it
         -- elsewhere in your config, without redefining it, due to `opts_extend`
         sources = {
